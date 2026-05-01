@@ -1,38 +1,59 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.typing-text {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  border-right: 2px solid #39ff14;
+  white-space: nowrap;
+  animation: typing 5.4s steps(76, end) infinite, cursor 0.8s step-end infinite;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .glass-card {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes typing {
+  0%,
+  12% {
+    width: 0;
   }
-  to {
-    transform: rotate(360deg);
+
+  48%,
+  78% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes cursor {
+  0%,
+  100% {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: #39ff14;
+  }
+}
+
+@media (max-width: 640px) {
+  .typing-text {
+    white-space: normal;
+    animation: cursor 0.8s step-end infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
