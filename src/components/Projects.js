@@ -7,11 +7,13 @@ const projects = [
     title: 'Online Retail Shopping Management System',
     description:
       'A localhost-based mini project for managing products, orders, and customer records in a retail shopping system.',
+    codeUrl: 'https://github.com/git-prerona-choudhury/Retail_management_system',
   },
   {
     title: 'Criminal Record Management System',
     description:
       'A localhost-based mini project designed to store and manage criminal records securely using database operations.',
+    codeUrl: 'https://github.com/git-prerona-choudhury/Criminal_record_system',
   },
 ];
 
@@ -45,7 +47,7 @@ function Projects() {
               </div>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <a href="https://github.com/git-prerona-choudhury?tab=repositories" className="btn-secondary justify-center text-sm" target="_blank" rel="noopener noreferrer">
+                <a href={project.codeUrl} className="btn-secondary justify-center text-sm" target="_blank" rel="noopener noreferrer">
                   View Codes <FiExternalLink />
                 </a>
               </div>
