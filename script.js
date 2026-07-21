@@ -36,59 +36,6 @@ if (navToggle && navLinks) {
   });
 }
 
-function createTypingEffect() {
-  const heroContent = document.querySelector('.hero-content');
-  if (!heroContent || document.getElementById('typing-text')) return;
-
-  const heading = document.createElement('h2');
-  heading.className = 'typing-line';
-  heading.innerHTML = 'I’m a <span id="typing-text" aria-live="polite"></span><span class="cursor" aria-hidden="true">|</span>';
-
-  const intro = heroContent.querySelector('.hero-intro');
-  heroContent.insertBefore(heading, intro);
-
-  return document.getElementById('typing-text');
-}
-
-const typingTarget = createTypingEffect();
-const typingWords = [
-  'Ethical Hacker',
-  'Cyber Security Enthusiast',
-  'Web Developer',
-  'B.Sc. Computer Science Student'
-];
-
-let wordIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-
-function typeLoop() {
-  if (!typingTarget) return;
-
-  const currentWord = typingWords[wordIndex];
-
-  if (!isDeleting) {
-    typingTarget.textContent = currentWord.slice(0, ++charIndex);
-
-    if (charIndex === currentWord.length) {
-      isDeleting = true;
-      setTimeout(typeLoop, 1400);
-      return;
-    }
-  } else {
-    typingTarget.textContent = currentWord.slice(0, --charIndex);
-
-    if (charIndex === 0) {
-      isDeleting = false;
-      wordIndex = (wordIndex + 1) % typingWords.length;
-    }
-  }
-
-  setTimeout(typeLoop, isDeleting ? 70 : 95);
-}
-
-typeLoop();
-
 const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
